@@ -1,17 +1,27 @@
 name: Auto Deploy Slidev
 on:
   push:
-    branches: [ main ] # 监听 main 分支的变动
+    branches: [ main ]
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm install
-      - run: npm run build -- --base /ai-slide-factory/
+          
+      - name: Install Dependencies
+        run: npm install
+        
+      - name: Build
+        # 添加 env 避免某些插件在云端报错
+        run: npm run build -- --base /ai-slide-factory/
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
