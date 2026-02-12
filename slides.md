@@ -1,54 +1,62 @@
 ---
 layout: cover
-background: 'https://images.unsplash.com/featured/?innovation,asian&sig=123456'
+background: 'https://images.unsplash.com/featured/?space,tokyo'
 ---
-# 亚洲创新峰会
-## 引领亚洲创新之潮
+# SPACE 9 东京加速器
+## 加速您的创业梦想
 
 ---
 layout: center
-background: 'https://images.unsplash.com/featured/?innovation,trends&sig=789012'
+background: 'https://images.unsplash.com/featured/?startup,accelerator'
+---
 # 项目简介
-亚洲创新峰会是一个汇集亚洲优秀创新项目和企业家的平台，旨在促进亚洲地区的创新交流和合作。
+SPACE 9 东京加速器致力于为初创企业提供全面的支持和资源，帮助他们快速成长和发展。
 
 ---
 layout: center
-background: 'https://images.unsplash.com/featured/?startups,ecosystem&sig=345678'
+background: 'https://images.unsplash.com/featured/?innovation,technology'
+---
 # 核心优势
-我们拥有一个强大的创新网络，涵盖各个领域的顶尖专家和企业家，为项目提供专业的指导和支持。
+我们的加速器拥有丰富的行业资源和技术支持，为创业者提供最优质的服务和指导。
 
 ---
 layout: center
-background: 'https://images.unsplash.com/featured/?market,trends&sig=901234'
+background: 'https://images.unsplash.com/featured/?market,trend'
+---
 # 市场机会
-亚洲创新峰会为参会者提供了与投资者、合作伙伴和潜在客户建立联系的机会，帮助其开拓新的市场和商机。
+东京作为全球创业中心，提供了无限的市场机会和发展空间，SPACE 9 东京加速器将帮助您抓住这些机会。
 
 ---
 layout: center
-background: 'https://images.unsplash.com/featured/?vision,future&sig=567890'
+background: 'https://images.unsplash.com/featured/?vision,future'
+---
 # 愿景
-我们的愿景是成为亚洲最具影响力的创新盛会，推动亚洲创新发展，创造更加美好的未来。
+我们的愿景是成为东京最杰出的创业加速器，助力创业者实现梦想并改变世界。
 
 ---
 layout: center
-background: 'https://images.unsplash.com/featured/?networking,connection&sig=123456'
-# Networking
-我们提供各种形式的活动和交流机会，帮助参会者建立宝贵的联系和网络。
+background: 'https://images.unsplash.com/featured/?community,network'
+---
+# 社区网络
+ SPACE 9 东京加速器拥有强大的创业社区和网络，为您提供无限的资源和支持。
 
 ---
 layout: center
-background: 'https://images.unsplash.com/featured/?innovation,awards&sig=789012'
-# 创新奖项
-我们为优秀的创新项目和企业家颁发奖项，表彰他们的贡献和成就。
+background: 'https://images.unsplash.com/featured/?mentorship,guidance'
+---
+# 指导和支持
+我们的导师和专家团队将提供个性化的指导和支持，帮助您克服创业中的挑战。
 
 ---
 layout: center
-background: 'https://images.unsplash.com/featured/?community,ecosystem&sig=345678'
-# 社区建设
-我们致力于建立一个健康、繁荣的创新社区，为创新者提供支持和资源。
+background: 'https://images.unsplash.com/featured/?fundraising,investment'
+---
+# 融资和投资
+SPACE 9 东京加速器还将帮助您获取融资和投资机会，助力您的业务快速发展。
 
 ---
 layout: center
-background: 'https://images.unsplash.com/featured/?sustainability,future&sig=901234'
-# 可持续发展
-我们关注可持续发展，倡导绿色创新和社会责任，共同建设更美好的未来。
+background: 'https://images.unsplash.com/featured/?success,story'
+---
+# 成功故事
+通过SPACE 9 东京加速器的支持，许多创业团队已经取得了成功，我们也期待您的成功故事。
