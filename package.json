@@ -2,16 +2,20 @@
   "name": "my-tool",
   "type": "module",
   "private": true,
-  "scripts": {
+ "scripts": {
     "build": "slidev build",
     "dev": "slidev --open",
-    "export": "slidev export"
-  },
+    "export": "slidev export",
+    "deploy": "slidev build --out dist --base /ai-slide-factory/ && gh-pages -d dist"
+},
   "dependencies": {
     "@slidev/cli": "^52.11.5",
     "@slidev/theme-default": "^0.25.0",
     "@slidev/theme-seriph": "^0.25.0",
     "axios": "^1.13.5",
     "vue": "^3.5.27"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
