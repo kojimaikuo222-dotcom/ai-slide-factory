@@ -2,91 +2,80 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Slide Factory | Consulting Dashboard</title>
+    <title>AI SLIDE FACTORY</title>
     <style>
-        :root { --bg: #0f172a; --panel: #1e293b; --accent: #38bdf8; --text: #f1f5f9; }
-        body { margin: 0; display: flex; height: 100vh; background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; }
-        
-        /* 左侧控制面板 */
-        #left-panel { /* 假设你的左侧 ID 叫这个 */
-        position: relative;
-        z-index: 100; 
-        min-width: 300px;
-}
-        #sidebar { width: 350px; background: var(--panel); padding: 30px; display: flex; flex-direction: column; border-right: 1px solid #334155; box-shadow: 10px 0 15px rgba(0,0,0,0.2); z-index: 10; }
-        h1 { font-size: 1.5rem; margin-bottom: 2rem; color: var(--accent); letter-spacing: -1px; }
-        label { font-size: 0.8rem; text-transform: uppercase; color: #94a3b8; margin-bottom: 8px; display: block; }
-        
-        input { background: #0f172a; border: 1px solid #334155; color: white; padding: 12px; border-radius: 8px; margin-bottom: 20px; font-size: 1rem; width: 100%; box-sizing: border-box; }
-        input:focus { outline: none; border-color: var(--accent); }
-        
-        button { background: var(--accent); color: #0f172a; border: none; padding: 15px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 1rem; }
-        button:hover { filter: brightness(1.2); transform: translateY(-2px); }
-        
-        #status-box { margin-top: auto; padding: 15px; background: #0f172a; border-radius: 8px; font-size: 0.85rem; border-left: 4px solid var(--accent); }
-        .dot { height: 8px; width: 8px; background-color: var(--accent); border-radius: 50%; display: inline-block; margin-right: 5px; animation: pulse 1s infinite; }
-        
-        /* 右侧预览区 */
-        #main-view { flex: 1; position: relative; background: #000; }
+        body { margin: 0; display: flex; height: 100vh; font-family: sans-serif; background: #1a1a1a; color: white; overflow: hidden; }
+        /* 左侧面板样式 */
+        #sidebar { width: 350px; background: #0f172a; padding: 25px; box-shadow: 2px 0 10px rgba(0,0,0,0.5); z-index: 10; display: flex; flex-direction: column; }
+        h2 { color: #00d4ff; margin-bottom: 30px; letter-spacing: 1px; }
+        .input-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-size: 13px; color: #94a3b8; }
+        input { width: 100%; padding: 12px; background: #1e293b; border: 1px solid #334155; border-radius: 6px; color: white; box-sizing: border-box; }
+        button { width: 100%; padding: 15px; background: #00bae7; border: none; border-radius: 6px; color: white; font-weight: bold; cursor: pointer; margin-top: 10px; transition: 0.3s; }
+        button:hover { background: #0099be; }
+        /* 右侧预览区样式 */
+        #preview { flex: 1; background: #000; position: relative; }
         iframe { width: 100%; height: 100%; border: none; }
-        
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+        #status { margin-top: auto; padding: 10px; font-size: 12px; color: #64748b; border-top: 1px solid #334155; }
     </style>
 </head>
 <body>
 
-    <div id="sidebar">
-        <h1>SLIDE FACTORY</h1>
-        
-        <label>幻灯片主题 (Topic)</label>
-        <input type="text" id="topic" placeholder="例如: 数字化转型咨询方案...">
-        
-        <label>目标受众 (Target Audience)</label>
-        <input type="text" id="audience" placeholder="例如: 企业高管、投资者...">
-        
-        <button onclick="generateSlide()">🚀 开始一键生成</button>
-
-        <div id="status-box">
-            <span class="dot"></span> 系统状态: <span id="status-text">就绪 (Ready)</span>
-        </div>
+<div id="sidebar">
+    <h2>SLIDE FACTORY</h2>
+    
+    <div class="input-group">
+        <label>幻灯片主题 (TOPIC)</label>
+        <input type="text" id="topic" placeholder="例如：数字孪生解决方案...">
     </div>
 
-    <div id="main-view">
-        <iframe id="preview" src="http://localhost:3030"></iframe>
+    <div class="input-group">
+        <label>目标受众 (AUDIENCE)</label>
+        <input type="text" id="audience" placeholder="例如：企业高管、投资者...">
     </div>
 
-    <script>
-        async function generateSlide() {
-            const topic = document.getElementById('topic').value;
-            const audience = document.getElementById('audience').value;
-            const statusText = document.getElementById('status-text');
-            const preview = document.getElementById('preview');
+    <button onclick="generate()">🚀 开始一键生成</button>
 
-            if (!topic) return alert("请输入主题");
+    <div id="status">系统状态: 就绪 (Ready)</div>
+</div>
 
-            statusText.innerText = "正在同步 AI 内容...";
+<div id="preview">
+    <iframe id="slideFrame" src="https://kojimaikuo222-dotcom.github.io/ai-slide-factory/"></iframe>
+</div>
+
+<script>
+    async function generate() {
+        const topic = document.getElementById('topic').value;
+        const audience = document.getElementById('audience').value;
+        const status = document.getElementById('status');
+        
+        if (!topic) return alert('请输入主题');
+        
+        status.innerText = '系统状态: 正在发送指令...';
+
+        try {
+            // 【关键】这里填你 localtunnel 的地址
+            const webhookUrl = '你的LOCALTUNNEL地址/webhook/create-ppt';
             
-            try {
-                // 这里对接你的 n8n Webhook
-                await fetch('https://eighty-papers-yawn.loca.lt', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ topic: topic, audience: audience })
-                });
+            await fetch(webhookUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ topic, audience })
+            });
 
-                statusText.innerText = "内容已到达后端，正在编译...";
-                
-                // 轮询等待后端写入文件并 Slidev 刷新
-                setTimeout(() => {
-                    preview.contentWindow.location.reload();
-                    statusText.innerText = "生成成功！";
-                }, 5000);
+            status.innerText = '系统状态: 正在生成 PPT (约需 1 分钟)...';
+            
+            // 1分钟后刷新右侧预览
+            setTimeout(() => {
+                document.getElementById('slideFrame').contentWindow.location.reload();
+                status.innerText = '系统状态: 已完成更新';
+            }, 60000);
 
-            } catch (err) {
-                statusText.innerText = "连接失败，请检查网络";
-            }
+        } catch (err) {
+            status.innerText = '系统状态: 发送失败，请检查隧道';
         }
-    </script>
+    }
+</script>
+
 </body>
 </html>
