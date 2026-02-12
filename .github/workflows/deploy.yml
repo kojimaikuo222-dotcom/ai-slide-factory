@@ -12,12 +12,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'npm'
           
       - name: Install Dependencies
-        run: npm install
+        run: |
+          npm install -g @slidev/cli playwright-chromium
+          npm install
         
       - name: Build
-        # 添加 env 避免某些插件在云端报错
         run: npm run build -- --base /ai-slide-factory/
         env:
           NODE_OPTIONS: --max_old_space_size=4096
