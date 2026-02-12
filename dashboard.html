@@ -9,6 +9,11 @@
         body { margin: 0; display: flex; height: 100vh; background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; }
         
         /* 左侧控制面板 */
+        #left-panel { /* 假设你的左侧 ID 叫这个 */
+        position: relative;
+        z-index: 100; 
+        min-width: 300px;
+}
         #sidebar { width: 350px; background: var(--panel); padding: 30px; display: flex; flex-direction: column; border-right: 1px solid #334155; box-shadow: 10px 0 15px rgba(0,0,0,0.2); z-index: 10; }
         h1 { font-size: 1.5rem; margin-bottom: 2rem; color: var(--accent); letter-spacing: -1px; }
         label { font-size: 0.8rem; text-transform: uppercase; color: #94a3b8; margin-bottom: 8px; display: block; }
@@ -64,7 +69,7 @@
             
             try {
                 // 这里对接你的 n8n Webhook
-                await fetch('http://localhost:5678/webhook-test/create-ppt', {
+                await fetch('https://eighty-papers-yawn.loca.lt', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ topic: topic, audience: audience })
